@@ -1,4 +1,4 @@
-package Pekan2;
+	package Pekan2;
 
 public class Variabel1 {
 
