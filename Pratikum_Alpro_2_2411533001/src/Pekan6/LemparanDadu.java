@@ -5,26 +5,31 @@ import java.util.Scanner;
 
 public class LemparanDadu {
 
-	public static void main(String[] args) {
-		Scanner a= new Scanner(System.in);
-		Random rand = new Random();
-		int tries = 0;
-		int sum= 0;
-		int t= 0;
-		int n;
-		n= a.nextInt();
-		while (t != n) {
-		int dadu1 = rand.nextInt(6) + 1;
-		int dadu2 = rand.nextInt(6) + 1;
-		sum = dadu1 + dadu2;
-		System.out.println(dadu1 + " + " + dadu2+ " = " + sum);
-		tries++;
-	}
-	System.out.println("You won after " + tries + "tries ");
-		
-		
-		
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-	}
+        int skor = 0, kesalahan = 0;
 
+        System.out.println("Tebak total angka dari dua dadu");
+
+        while (kesalahan < 3) {
+            System.out.print("Tebakan: ");
+            int tebakanPengguna = scanner.nextInt();
+            int hasilDadu1 = random.nextInt(6) + 1;
+            int hasilDadu2 = random.nextInt(6) + 1;
+            int totalDadu = hasilDadu1 + hasilDadu2;
+
+            if (tebakanPengguna == totalDadu) {
+                skor += 10;
+                System.out.println("Benar! Skor: " + skor);
+            } else {
+                kesalahan++;
+                System.out.println("Salah! Dadu: " + hasilDadu1 + " + " + hasilDadu2 + " = " + totalDadu + " | Kesalahan: " + kesalahan);
+            }
+        }
+
+        System.out.println("Game over! Skor akhir: " + skor);
+        scanner.close();
+    }
 }
